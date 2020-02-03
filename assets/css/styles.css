@@ -1,0 +1,103 @@
+/* background color: #232428 */
+/* color: #f6b05a */
+:root {
+  --bgColor: var(rgb(63, 68, 67));
+  --secondaryColor: var(rgb(221, 151, 74));
+}
+html {
+  height: 100%;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+  color: var(--bgColor);
+}
+.yo-globe {
+  height: 100vh;
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 40px auto 40px;
+  grid-template-areas:
+    "m m m m m m m m m m m m"
+    "c c c c c c c c c c c c"
+    "l l l l l l l l l l l l";
+}
+/* The Overlay (background) */
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
+  height: 100%;
+  width: 0;
+  position: absolute; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  right: 0;
+  top: 0;
+  color: white;
+  background-color: black;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+/* positions the content inside the overlay */
+.overlay-content {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 25%;
+  /* left: 50%; */
+  display: inline-block;
+  margin: auto;
+  /* drops the links in the overlay 25% from the top */
+  text-align: center; /* centers text in overlay */
+}
+/* The navigation links inside the overlay */
+.overlay a {
+  padding-bottom: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: white;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+.overlay {
+  font-size: 2rem;
+}
+.exit {
+  /* border: solid white; */
+  grid-area: m;
+  display: inline-flex;
+  font-size: 3rem;
+  top: 0;
+  right: 0;
+}
+.menu {
+  /* border: solid black; */
+  grid-area: m;
+  display: inline-flex;
+  margin-left: auto;
+  font-size: 3rem;
+  top: 0;
+  right: 0;
+}
+/* ~~~~~~~~~~~~~~ */
+/* LINKS */
+/* ~~~~~~~~~~~~~~ */
+.links {
+  /* border: solid black; */
+  width: 100vw;
+  height: 100%;
+  grid-area: l;
+  z-index: 0;
+  display: inline-flex;
+  vertical-align: middle;
+  text-align: center;
+  justify-content: space-between;
+}
+.links img {
+  height: 40px;
+  cursor: pointer;
+}
